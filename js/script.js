@@ -31,7 +31,7 @@ const titleClickHandler = function (event) {
   
 
   /* add class 'active' to the correct article */
-  targetArticle.classList.add('.post.active');
+  targetArticle.classList.add('active');
 }
 
 
