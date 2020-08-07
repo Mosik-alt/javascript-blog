@@ -1,5 +1,9 @@
 'use strict'
 
+const optArticleSelector = '.post',
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
+
 const titleClickHandler = function (event) {
   event.preventDefault();
   const clickedElement = this;
@@ -34,22 +38,12 @@ const titleClickHandler = function (event) {
   targetArticle.classList.add('active');
 }
 
+function generateTitleLinks() {
 
-const links = document.querySelectorAll('.titles a');
+  /* remove contents of titleList */
+  const titleList = document.querySelector(optTitleListSelector);
+  titleList.innerHTML = '';
 
-for (let link of links) {
-  link.addEventListener('click', titleClickHandler);
-
-  const optArticleSelector = '.post',
-    optTitleSelector = '.post-title',
-    optTitleListSelector = '.titles';
-
-  function generateTitleLinks() {
-
-    /* remove contents of titleList */
-    const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
-    titleList.remove(optTitleListSelector);
-  }
   /* for each article */
   const articles = document.querySelectorAll(optArticleSelector);
 
@@ -75,10 +69,7 @@ for (let link of links) {
     /* insert link into titleList */
     html = html + linkHTML;
   }
-function clearMassages() {
   titleList.innerHTML = html;
-}
-  generateTitleLinks();
 
   const links = document.querySelectorAll('.titles a');
 
@@ -86,6 +77,6 @@ function clearMassages() {
     link.addEventListener('click', titleClickHandler);
   }
 
-
-
 }
+
+generateTitleLinks();
