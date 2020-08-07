@@ -48,7 +48,7 @@ for (let link of links) {
 
     /* remove contents of titleList */
     const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
-    titleList.remove(li);
+    titleList.remove(optTitleListSelector);
   }
   /* for each article */
   const articles = document.querySelectorAll(optArticleSelector);
@@ -59,7 +59,7 @@ for (let link of links) {
 
     /* get the article id */
 
-    const articleID = articles.getAttribute('id');
+    const articleId = article.getAttribute('id');
 
     /* find the title element */
 
@@ -69,14 +69,15 @@ for (let link of links) {
 
 
     /* create HTML of the link */
+
     const linkHTML = '<li><a href="#' + articleId + ' "><span>' + articleTitle + '</span></a></li>';
     console.log('linkHTML has been changed!')
     /* insert link into titleList */
     html = html + linkHTML;
   }
-
+function clearMassages() {
   titleList.innerHTML = html;
-
+}
   generateTitleLinks();
 
   const links = document.querySelectorAll('.titles a');
