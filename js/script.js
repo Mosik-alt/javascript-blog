@@ -104,6 +104,7 @@ function calculateTagsParams(tags) {
 
   return params;
 }
+
 function generateTags() {
 
 
@@ -140,6 +141,7 @@ function generateTags() {
 
       /* generate HTML of the link */
       const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+
       /* add generated code to html variable */
       html = html + linkHTML;
 
@@ -173,15 +175,17 @@ function generateTags() {
     const tagLinkHTML = calculateTagsParams(allTags[tag], tagsParams);
 
     for (let tag in allTags) {
-      const tagLinkHTML = `<li><a href="#">${tag}</a> <span>${allTags[tag]}</span></li>`;
+      const tagLinkHTML = `<li><a href="#" class="calculateTagClass">${tag}</a> <span>${allTags[tag]}</span></li>`;
+      console.log('tagi po prawej stronie zostaly wyswietlone');
 
       /* [NEW] generate code of a link and add it to allTagsHTML */
       allTagsHTML += tagLinkHTML;
       /* [NEW] END LOOP: for each tag in allTags: */
     }
   }
-  generateTags();
 }
+generateTags();
+
 
 function tagClickHandler(event) {
 
@@ -289,7 +293,7 @@ function authorClickHandler(event) {
   const articleAutor = href.replace('data-author');
 
   /* find all autors links with class active */
-  const authors = document.querySelectorAll(`a.active(href^="#autor")`);
+  const authors = document.querySelectorAll(`a.active(href^="#articleAutor")`);
 
   /* START LOOP: for each active autor link */
   for (let author of authors) {
