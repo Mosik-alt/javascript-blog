@@ -31,7 +31,7 @@
           <article class="post active" id="article-1" data-tags="design tutorials" data-author="Marion Berry">
             <h3 class="post-title">Article 1</h3>
             <p class="post-author">
-              
+
             </p>
             <div class="post-content">
               <p>Duis non dolor efficitur erat interdum fringilla a lobortis dolor. Aenean in massa viverra, pretium
@@ -251,7 +251,7 @@
         <aside class="sidebar">
           <h2 class="section-title">Tags</h2>
           <ul class="list tags">
-            
+
           </ul>
           <h2 class="section-title">Authors</h2>
           <ul class="list authors">
@@ -280,6 +280,21 @@
       </main>
     </div>
   </div>
+  <script id="template-article-link" type="text/x-handlebars-temple">
+    <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
+  </script>
+  <script id="template-tag-link" type="text/x-handlebars-temple">
+    <li><a href="#{{ id }}"><span>{{ tag }}</span></a></li>
+  </script>
+  <script id="template-author-link" type="text/x-handlebars-temple">
+    <li><a href="#{{ id }}"><span>{{ tag }}</span></a></li>
+  </script>
+  <script id="template-tag-cloud-link" type="text/x-handlebars-temple">
+    {{#each tags}}
+  <li>{{ tag }}</li>
+  {{/each}}
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 
