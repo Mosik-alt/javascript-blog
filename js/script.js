@@ -190,7 +190,7 @@ function generateTags() {
 
   /* [NEW] create variable for all links HTML code */
   let allTagsData = { tags: [] };
-  const tagsParams = calculateTagsParams(allTags);
+  const tagsParams = calculateTagsParams(allTagsData);
   console.log('tagsParams:', tagsParams);
 
   /* [NEW] START LOOP: for each tag in allTags: */
@@ -318,8 +318,8 @@ function generateAuthors() {
 const authorsList = document.querySelector('.list .authors');
 
 /* [NEW] create variable for all links HTML code */
-const allAuthorData = {articles: []};
-const authorParams = calculateTagsParams(authorHTML);
+const authorData = { articles: [] };
+const authorParams = calculateTagsParams(authorData);
 console.log('authorParams:', authorParams);
 
 /* [NEW] START LOOP: for each author in allAuthors: */
@@ -328,11 +328,13 @@ for (let article in authorHTML) {
   console.log('tagi po prawej stronie zostaly wyswietlone');
 
   /* [NEW] generate code of a link and add it to allTagsHTML */
-  allAuthorData.article.push({
-    tag: tag,
-    count: allAuthorData[articleAuthor],
+  authorData.articles.push({
+    article: article,
+    count: author[article],
     className: calculateTagClass(allarticleAuthor[tag], tagsParams)
   });
+
+  authorsList.innerHTML = templates.authorCloudLink(authorData);
   /* [NEW] END LOOP: for each tag in allTags: */
 }
 
