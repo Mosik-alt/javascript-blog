@@ -175,7 +175,7 @@ function generateTags() {
   }
 
   /* [NEW] find list of tags in right column */
-  const tagList = document.querySelector('list tags');
+  const tagList = document.querySelector('.tags.list');
 
   /* [NEW] create variable for all links HTML code */
   let allTagsHTML = '';
@@ -191,7 +191,9 @@ function generateTags() {
     allTagsHTML += tagLinkHTML;
     /* [NEW] END LOOP: for each tag in allTags: */
   }
+  tagList.innerHTML = allTagsHTML;
 }
+
 generateTags();
 
 
