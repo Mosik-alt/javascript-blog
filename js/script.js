@@ -303,18 +303,18 @@ function generateAuthors() {
     /* END LOOP: for every article: */
   }
   /* [NEW] check if this link is NOT already in allTags */
-  if (!author[articles]) {
+  if (!author['']) {
     /* [NEW] add generated code to allTags array */
-    author[articles] = 1;
+    author[''] = 1;
   }
   else {
-    author[articles]++;
+    author['']++;
   }
 
   /* END LOOP: for each tag */
 
   /* [NEW] find list of authors in right column */
-  const authorsList = document.querySelector('.list .authors');
+  const authorsList = document.querySelector('.list.authors');
 
   /* [NEW] create variable for all links HTML code */
   const authorData = { articles: [] };
